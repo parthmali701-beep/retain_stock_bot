@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot name="15_Navy_Body_Wash">
+  <material name="mat_body_15_Navy_Body_Wash"><color rgba="0.0 0.0 0.3 1.0"/></material>
+  <material name="mat_cap_15_Navy_Body_Wash"><color rgba="0.8 0.8 0.8 1"/></material>
+  <link name="baseLink">
+    <inertial><mass value="0.15"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
+    <visual><origin xyz="0 0 0.1"/><geometry><cylinder radius="0.045" length="0.2"/></geometry><material name="mat_body_15_Navy_Body_Wash"/></visual>
+    <collision><origin xyz="0 0 0.1"/><geometry><cylinder radius="0.045" length="0.2"/></geometry></collision>
+  </link>
+  <link name="neck">
+    <inertial><mass value="0.05"/><inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/></inertial>
+    <visual><origin xyz="0 0 0.225"/><geometry><cylinder radius="0.018" length="0.05"/></geometry><material name="mat_cap_15_Navy_Body_Wash"/></visual>
+    <collision><origin xyz="0 0 0.225"/><geometry><cylinder radius="0.018" length="0.05"/></geometry></collision>
+  </link>
+  <joint name="neck_joint" type="fixed"><parent link="baseLink"/><child link="neck"/><origin xyz="0 0 0"/></joint>
+</robot>

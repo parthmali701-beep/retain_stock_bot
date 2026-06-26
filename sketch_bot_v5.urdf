@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+    <robot name="sketch_bot_v5_premium">
+        
+        <link name="base_link">
+            <visual><origin xyz="0 0 0.14"/><geometry><cylinder radius="0.22" length="0.13"/></geometry><material name="matte_black"><color rgba="0.15 0.15 0.15 1"/></material></visual>
+            <collision><origin xyz="0 0 0.14"/><geometry><cylinder radius="0.22" length="0.13"/></geometry></collision>
+            <inertial><origin xyz="0 0 0.14"/><mass value="25"/><inertia ixx="0.2" ixy="0" ixz="0" iyy="0.2" iyz="0" izz="0.3"/></inertial>
+        </link>
+
+        <link name="base_accent">
+            <visual><origin xyz="0 0 0.205"/><geometry><cylinder radius="0.222" length="0.01"/></geometry><material name="cyan_led"><color rgba="0.0 0.8 1.0 1"/></material></visual>
+        </link>
+        <joint name="accent_joint" type="fixed"><parent link="base_link"/><child link="base_accent"/><origin xyz="0 0 0"/></joint>
+
+        <link name="main_tower">
+            <visual><origin xyz="0 0 0.85"/><geometry><box size="0.2 0.1 1.25"/></geometry><material name="gloss_white"><color rgba="0.95 0.95 0.95 1"/></material></visual>
+            <collision><origin xyz="0 0 0.85"/><geometry><box size="0.2 0.1 1.25"/></geometry></collision>
+            <inertial><mass value="4"/><inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.05"/></inertial>
+        </link>
+        <joint name="tower_joint" type="fixed"><parent link="base_link"/><child link="main_tower"/><origin xyz="0 0 0"/></joint>
+
+        <link name="sensor_fascia_right">
+            <visual><origin xyz="0 -0.051 0.85"/><geometry><box size="0.18 0.005 1.15"/></geometry><material name="dark_glass"><color rgba="0.05 0.05 0.08 1"/></material></visual>
+        </link>
+        <joint name="fascia_right_joint" type="fixed"><parent link="main_tower"/><child link="sensor_fascia_right"/><origin xyz="0 0 0"/></joint>
+
+        <link name="cam_R_low"><visual><geometry><box size="0.01 0.01 0.01"/></geometry><material name="cyan_led"/></visual></link>
+        <joint name="cam_R_low_joint" type="fixed"><parent link="main_tower"/><child link="cam_R_low"/><origin xyz="0 -0.052 0.58"/></joint>
+
+        <link name="cam_R_high"><visual><geometry><box size="0.01 0.01 0.01"/></geometry><material name="cyan_led"/></visual></link>
+        <joint name="cam_R_high_joint" type="fixed"><parent link="main_tower"/><child link="cam_R_high"/><origin xyz="0 -0.052 1.38"/></joint>
+
+        <link name="sensor_fascia_left">
+            <visual><origin xyz="0 0.051 0.85"/><geometry><box size="0.18 0.005 1.15"/></geometry><material name="dark_glass"/></visual>
+        </link>
+        <joint name="fascia_left_joint" type="fixed"><parent link="main_tower"/><child link="sensor_fascia_left"/><origin xyz="0 0 0"/></joint>
+
+        <link name="cam_L_low"><visual><geometry><box size="0.01 0.01 0.01"/></geometry><material name="cyan_led"/></visual></link>
+        <joint name="cam_L_low_joint" type="fixed"><parent link="main_tower"/><child link="cam_L_low"/><origin xyz="0 0.052 0.58"/></joint>
+
+        <link name="cam_L_high"><visual><geometry><box size="0.01 0.01 0.01"/></geometry><material name="cyan_led"/></visual></link>
+        <joint name="cam_L_high_joint" type="fixed"><parent link="main_tower"/><child link="cam_L_high"/><origin xyz="0 0.052 1.38"/></joint>
+
+        <link name="left_wheel">
+            <visual><geometry><cylinder radius="0.08" length="0.05"/></geometry><origin xyz="0 0 0" rpy="1.5708 0 0"/><material name="wheel_dark"><color rgba="0.08 0.08 0.08 1"/></material></visual>
+            <collision><geometry><cylinder radius="0.08" length="0.05"/></geometry><origin xyz="0 0 0" rpy="1.5708 0 0"/></collision>
+            <inertial><mass value="1"/><inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/></inertial>
+        </link>
+        <joint name="left_motor" type="continuous"><parent link="base_link"/><child link="left_wheel"/><origin xyz="0 0.15 0.08"/><axis xyz="0 1 0"/></joint>
+
+        <link name="right_wheel">
+            <visual><geometry><cylinder radius="0.08" length="0.05"/></geometry><origin xyz="0 0 0" rpy="1.5708 0 0"/><material name="wheel_dark"/></visual>
+            <collision><geometry><cylinder radius="0.08" length="0.05"/></geometry><origin xyz="0 0 0" rpy="1.5708 0 0"/></collision>
+            <inertial><mass value="1"/><inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/></inertial>
+        </link>
+        <joint name="right_motor" type="continuous"><parent link="base_link"/><child link="right_wheel"/><origin xyz="0 -0.15 0.08"/><axis xyz="0 1 0"/></joint>
+
+        <link name="front_caster">
+            <visual><geometry><sphere radius="0.04"/></geometry><origin xyz="0 0 0"/><material name="grey"><color rgba="0.4 0.4 0.4 1"/></material></visual>
+            <collision><geometry><sphere radius="0.04"/></geometry><origin xyz="0 0 0"/></collision>
+        </link>
+        <joint name="front_caster_joint" type="fixed"><parent link="base_link"/><child link="front_caster"/><origin xyz="0.15 0 0.04"/></joint>
+        
+        <link name="rear_caster">
+            <visual><geometry><sphere radius="0.04"/></geometry><origin xyz="0 0 0"/><material name="grey"/></visual>
+            <collision><geometry><sphere radius="0.04"/></geometry><origin xyz="0 0 0"/></collision>
+        </link>
+        <joint name="rear_caster_joint" type="fixed"><parent link="base_link"/><child link="rear_caster"/><origin xyz="-0.15 0 0.04"/></joint>
+    </robot>
+    

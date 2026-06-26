@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="06_Pink_Soap">
+  <material name="mat_06_Pink_Soap"><color rgba="1.0 0.6 0.8 1.0"/></material>
+  <link name="baseLink">
+    <inertial><mass value="0.2"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
+    <visual><origin xyz="0 0 0.03"/><geometry><box size="0.1 0.04 0.06"/></geometry><material name="mat_06_Pink_Soap"/></visual>
+    <collision><origin xyz="0 0 0.03"/><geometry><box size="0.1 0.04 0.06"/></geometry></collision>
+  </link>
+</robot>

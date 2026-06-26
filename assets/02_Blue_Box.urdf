@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="02_Blue_Box">
+  <material name="mat_02_Blue_Box"><color rgba="0.0 0.0 0.8 1.0"/></material>
+  <link name="baseLink">
+    <inertial><mass value="0.2"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
+    <visual><origin xyz="0 0 0.05"/><geometry><box size="0.1 0.1 0.1"/></geometry><material name="mat_02_Blue_Box"/></visual>
+    <collision><origin xyz="0 0 0.05"/><geometry><box size="0.1 0.1 0.1"/></geometry></collision>
+  </link>
+</robot>
